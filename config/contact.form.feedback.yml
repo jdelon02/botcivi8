@@ -1,0 +1,14 @@
+uuid: c77fde60-8623-4bec-b8e2-14bd833caa79
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vymHlgJy26BuI5GGj9-IXjwR3dRC5C0tij4BpWJnoqw
+id: feedback
+label: 'Website feedback'
+recipients:
+  - jdelong@backofficethinking.com
+reply: ''
+weight: 0
+message: 'Your message has been sent.'
+redirect: ''
