@@ -76,7 +76,7 @@ if (!defined('CIVICRM_UF_DSN') && CIVICRM_UF !== 'UnitTests') {
   define( 'CIVICRM_UF_DSN'           , 'mysql://pantheon:d5f40458829243ffbd785a739c69fcaa@10.128.15.202:28981/pantheon?new_link=true');
 }
 
-// 
+//
 
 /**
  * CiviCRM Database Settings
@@ -525,5 +525,5 @@ if ($memLimit >= 0 and $memLimit < 134217728) {
     ini_set('memory_limit', '128M');
 }
 
-require_once 'CRM/Core/ClassLoader.php';
+require_once $civicrm_root . 'CRM/Core/ClassLoader.php';
 CRM_Core_ClassLoader::singleton()->register();
