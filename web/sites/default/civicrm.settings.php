@@ -64,6 +64,25 @@ if (!defined('CIVICRM_UF')) {
 }
 
 /**
+* Pantheon:
+* Populate needed variables based on the Pantheon environment.
+*/
+if (!empty($_SERVER['PRESSFLOW_SETTINGS'])) {
+  $env = json_decode($_SERVER['PRESSFLOW_SETTINGS'], TRUE);
+  if (!empty($env['conf']['pantheon_binding'])) {
+    $pantheon_db = $env['databases']['default']['default'];
+    $pantheon_conf = $env['conf'];
+
+    // Database Username and Password
+    $pantheon_db_string = $pantheon_db['driver'] . '://' . $pantheon_db['username'] . ':' . $pantheon_db['password'] . '@';
+    // Host
+    $pantheon_db_string .= 'dbserver.' . $pantheon_conf['pantheon_environment'] . '.' . $pantheon_conf['pantheon_site_uuid'] . '.drush.in' . ':' . $pantheon_db['port'];
+    // Database
+    $pantheon_db_string .= '/' . $pantheon_db['database'] . '?new_link=true';
+  }
+}
+
+/**
  * Content Management System (CMS) Datasource:
  *
  * Update this setting with your CMS (Drupal, Backdrop CMS, or Joomla) database username, password, server and DB name.
@@ -73,9 +92,13 @@ if (!defined('CIVICRM_UF')) {
  *      define( 'CIVICRM_UF_DSN', 'mysql://cms_db_username:cms_db_password@db_server/cms_database?new_link=true');
  */
 if (!defined('CIVICRM_UF_DSN') && CIVICRM_UF !== 'UnitTests') {
-  define( 'CIVICRM_UF_DSN'           , 'mysql://pantheon:d5f40458829243ffbd785a739c69fcaa@10.128.15.202:28981/pantheon?new_link=true');
+  if (isset($pantheon_conf)) {
+    define('CIVICRM_UF_DSN', $pantheon_db_string);
+  } else {
+    //define( 'CIVICRM_UF_DSN'           , 'mysql://pantheon:d5f40458829243ffbd785a739c69fcaa@10.128.15.202:28981/pantheon?new_link=true');
+    define( 'CIVICRM_UF_DSN', 'mysql://cms_db_username:cms_db_password@db_server/cms_database?new_link=true');
+  }
 }
-
 //
 
 /**
@@ -105,8 +128,12 @@ if (!defined('CIVICRM_DSN')) {
   if (CIVICRM_UF === 'UnitTests' && isset($GLOBALS['_CV']['TEST_DB_DSN'])) {
     define('CIVICRM_DSN', $GLOBALS['_CV']['TEST_DB_DSN']);
   }
+  if (isset($pantheon_conf)) {
+    define('CIVICRM_DSN', $pantheon_db_string);
+  }
   else {
-    define('CIVICRM_DSN', 'mysql://pantheon:d5f40458829243ffbd785a739c69fcaa@10.128.15.202:28981/pantheon?new_link=true');
+    # define('CIVICRM_DSN', 'mysql://pantheon:d5f40458829243ffbd785a739c69fcaa@10.128.15.202:28981/pantheon?new_link=true');
+    define('CIVICRM_DSN', 'mysql://crm_db_username:crm_db_password@db_server/crm_database?new_link=true');
   }
 }
 
@@ -178,9 +205,21 @@ if (!defined('CIVICRM_LOGGING_DSN')) {
 
 global $civicrm_root;
 
-$civicrm_root = '/srv/bindings/5b3c65697ab54bb686c7c7ccbd80e1ac/code/vendor/civicrm/civicrm-core';
+# $civicrm_root = '/srv/bindings/5b3c65697ab54bb686c7c7ccbd80e1ac/code/vendor/civicrm/civicrm-core';
+if (isset($pantheon_conf)) {
+  $civicrm_root = '/srv/bindings/' . $pantheon_conf['pantheon_binding'] . '/code/vendor/civicrm/civicrm-core';
+}
+else {
+  $civicrm_root = '/full/path/to/modules/civicrm';
+}
+
 if (!defined('CIVICRM_TEMPLATE_COMPILEDIR')) {
-  define( 'CIVICRM_TEMPLATE_COMPILEDIR', '/srv/bindings/5b3c65697ab54bb686c7c7ccbd80e1ac/code/web/sites/default/files/civicrm/templates_c/');
+  if (isset($pantheon_conf)) {
+    define('CIVICRM_TEMPLATE_COMPILEDIR', '/srv/bindings/' . $pantheon_conf['pantheon_binding'] . '/code/web/sites/default/files/civicrm/templates_c/');
+  }
+  else {
+    define( 'CIVICRM_TEMPLATE_COMPILEDIR', '/full/path/to/files/private/civicrm/templates_c');
+  }
 }
 
 /**
@@ -216,7 +255,7 @@ if (!defined('CIVICRM_TEMPLATE_COMPILEDIR')) {
  *
  */
 if (!defined('CIVICRM_UF_BASEURL')) {
-  define( 'CIVICRM_UF_BASEURL'      , 'http://dev-botcivi8.pantheonsite.io');
+  define( 'CIVICRM_UF_BASEURL'      , 'https://' . $pantheon_conf['pantheon_environment'] . '-botcivi8.pantheonsite.io');
 }
 
 /**
@@ -525,5 +564,5 @@ if ($memLimit >= 0 and $memLimit < 134217728) {
     ini_set('memory_limit', '128M');
 }
 
-require_once $civicrm_root . 'CRM/Core/ClassLoader.php';
+require_once 'CRM/Core/ClassLoader.php';
 CRM_Core_ClassLoader::singleton()->register();
