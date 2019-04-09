@@ -3,6 +3,9 @@ module:
   big_pipe: 0
   block: 0
   breakpoint: 0
+  civicrm: 0
+  civicrm_views: 0
+  civicrmtheme: 0
   ckeditor: 0
   color: 0
   comment: 0
