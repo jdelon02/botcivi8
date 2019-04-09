@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "81dc2b2b4bd7d50dc48d998f595cec4e",
+    "content-hash": "ff9a904c25b58f32ddb457d13b4788b0",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2836,6 +2836,39 @@
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
+            "name": "jdelon02/civicrm-composer-plugin",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/jdelon02/civicrm-composer-plugin.git",
+                "reference": "e1c39b88621273c678cdf13f55f4fce92eb4a466"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/jdelon02%2Fcivicrm-composer-plugin/repository/archive.zip?sha=e1c39b88621273c678cdf13f55f4fce92eb4a466",
+                "reference": "e1c39b88621273c678cdf13f55f4fce92eb4a466",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1",
+                "pear/archive_tar": "^1.4"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Jdelon02\\CivicrmComposerPlugin\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jdelon02\\CivicrmComposerPlugin\\": "src/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "A composer plugin to assist with installing CiviCRM.",
+            "time": "2019-04-09T14:52:35+00:00"
+        },
+        {
             "name": "marcj/topsort",
             "version": "1.1.0",
             "source": {
@@ -4346,40 +4379,6 @@
             ],
             "description": "A polyfill for getallheaders.",
             "time": "2016-02-11T07:05:27+00:00"
-        },
-        {
-            "name": "roundearth/civicrm-composer-plugin",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://gitlab.com/roundearth/civicrm-composer-plugin.git",
-                "reference": "5c713acaf3aa46408159626b7f8b4e31d0148d5d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/roundearth%2Fcivicrm-composer-plugin/repository/archive.zip?sha=5c713acaf3aa46408159626b7f8b4e31d0148d5d",
-                "reference": "5c713acaf3aa46408159626b7f8b4e31d0148d5d",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.1",
-                "pear/archive_tar": "^1.4"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Roundearth\\CivicrmComposerPlugin\\Plugin"
-            },
-            "autoload": {
-                "psr-4": {
-                    "Roundearth\\CivicrmComposerPlugin\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "description": "A composer plugin to assist with installing CiviCRM.",
-            "time": "2019-03-22T14:11:09+00:00"
         },
         {
             "name": "rvtraveller/qs-composer-installer",
@@ -9025,7 +9024,7 @@
     "stability-flags": {
         "civicrm/civicrm-drupal-8": 20,
         "drupal/simple_block": 10,
-        "roundearth/civicrm-composer-plugin": 20,
+        "jdelon02/civicrm-composer-plugin": 20,
         "zetacomponents/mail": 20
     },
     "prefer-stable": true,
