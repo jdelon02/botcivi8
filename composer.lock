@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "26f439863bbecf9ee60fbf0ee2f2feda",
+    "content-hash": "db4ffb92a0f8cadff1eb5022287b54d3",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -299,16 +299,16 @@
         },
         {
             "name": "civicrm/civicrm-drupal-8",
-            "version": "dev-master",
+            "version": "5.10.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/civicrm/civicrm-drupal-8.git",
-                "reference": "41c855b8bdf15cef9b5578622e53d90b4510b317"
+                "reference": "1280a4c6cc5a96f192ad47844af58f2372413fd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/civicrm/civicrm-drupal-8/zipball/41c855b8bdf15cef9b5578622e53d90b4510b317",
-                "reference": "41c855b8bdf15cef9b5578622e53d90b4510b317",
+                "url": "https://api.github.com/repos/civicrm/civicrm-drupal-8/zipball/1280a4c6cc5a96f192ad47844af58f2372413fd1",
+                "reference": "1280a4c6cc5a96f192ad47844af58f2372413fd1",
                 "shasum": ""
             },
             "require": {
@@ -346,7 +346,7 @@
                 }
             ],
             "description": "Open source constituent relationship management for non-profits, NGOs and advocacy organizations.",
-            "time": "2019-03-22T14:31:11+00:00"
+            "time": "2018-12-11T14:29:43+00:00"
         },
         {
             "name": "civicrm/civicrm-setup",
