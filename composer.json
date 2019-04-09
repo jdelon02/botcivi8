@@ -3,6 +3,12 @@
     "description": "Install drops-8 with Composer on Pantheon.",
     "type": "project",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeremy DeLong",
+            "role": "Just Awesome"
+        }
+    ],
     "repositories": [
         {
             "type": "composer",
@@ -11,19 +17,24 @@
     ],
     "require": {
         "php": ">=7.0.8",
-        "composer/installers": "^1.0.20",
-        "cweagans/composer-patches": "^1.0",
-        "drupal-composer/drupal-scaffold": "^2.0.1",
+        "civicrm/civicrm-drupal-8": "dev-master",
+        "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6.5",
+        "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/config_direct_save": "^1.0",
         "drupal/config_installer": "^1.0",
-        "drupal/console": "^1",
+        "drupal/console": "^1.0.2",
         "drupal/core": "^8",
         "drupal/simple_block": "^1.0@beta",
         "drush-ops/behat-drush-endpoint": "^9.3",
         "drush/drush": "~8",
+        "roundearth/civicrm-composer-plugin": "dev-master",
         "pantheon-systems/quicksilver-pushback": "~1",
         "rvtraveller/qs-composer-installer": "^1.1",
         "webflo/drupal-core-strict": "^8",
+        "vlucas/phpdotenv": "^2.4",
+        "webflo/drupal-finder": "^1.0.0",
+        "webmozart/path-util": "^2.3",
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
@@ -44,7 +55,7 @@
     "conflict": {
             "drupal/drupal": "*"
     },
-    "minimum-stability": "alpha",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
         "classmap": [
@@ -79,8 +90,13 @@
         ]
     },
     "extra": {
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+          "drupal/core": "-p2"
+        },
         "installer-paths": {
             "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
             "web/modules/contrib/{$name}": ["type:drupal-module"],
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
