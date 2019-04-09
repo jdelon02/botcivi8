@@ -13,6 +13,10 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "vcs",
+            "url": "git@gitlab.com:jdelon02/civicrm-composer-plugin.git"
         }
     ],
     "require": {
@@ -29,7 +33,7 @@
         "drush-ops/behat-drush-endpoint": "^9.3",
         "drush/drush": "~8",
         "pantheon-systems/quicksilver-pushback": "~1",
-        "roundearth/civicrm-composer-plugin": "dev-master",
+        "jdelon02/civicrm-composer-plugin": "dev-master",
         "rvtraveller/qs-composer-installer": "^1.1",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-core-strict": "^8",
