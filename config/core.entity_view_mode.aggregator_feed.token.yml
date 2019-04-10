@@ -1,0 +1,10 @@
+uuid: 06b49e37-944c-4f41-b9a7-a14b65e4a555
+langcode: en
+status: true
+dependencies:
+  module:
+    - aggregator
+id: aggregator_feed.token
+label: Token
+targetEntityType: aggregator_feed
+cache: true

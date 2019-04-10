@@ -1,0 +1,10 @@
+uuid: 62ca211e-2187-4c27-ad1d-023d9ba84050
+langcode: en
+status: true
+dependencies:
+  module:
+    - og
+id: og_membership.token
+label: Token
+targetEntityType: og_membership
+cache: true
