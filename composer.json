@@ -33,6 +33,7 @@
         "drupal/block_class": "^1.0",
         "drupal/bootstrap": "^3.17",
         "drupal/bootstrap_layouts": "^5.1",
+        "drupal/checklistapi": "^1.10",
         "drupal/chosen": "^2.6",
         "drupal/colorbox": "^1.4",
         "drupal/config_direct_save": "^1.0",
