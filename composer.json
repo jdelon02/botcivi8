@@ -56,7 +56,7 @@
         "drupal/libraries": "^3.0",
         "drupal/menu_block": "^1.5",
         "drupal/migrate_plus": "4.x-dev",
-        "drupal/migrate_tools": "^4.1",
+        "drupal/migrate_tools": "4.x-dev",
         "drupal/migrate_upgrade": "^3",
         "drupal/module_filter": "^3.1",
         "drupal/og": "^1.0",

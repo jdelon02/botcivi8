@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f9577cb934570b416caa9e56a3a4f14e",
+    "content-hash": "02c8ed81b877f3653af2a606626779f5",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4241,17 +4241,11 @@
         },
         {
             "name": "drupal/migrate_tools",
-            "version": "4.1.0",
+            "version": "dev-4.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/migrate_tools.git",
-                "reference": "8.x-4.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/migrate_tools-8.x-4.1.zip",
-                "reference": "8.x-4.1",
-                "shasum": "0355d5309fbb738759332779d0ecf5f19a1da0a4"
+                "reference": "c3de8be7e21134cee85b728d35c2c0fa62964267"
             },
             "require": {
                 "drupal/core": "^8.3",
@@ -4268,11 +4262,11 @@
                     "dev-4.x": "4.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-4.1",
-                    "datestamp": "1546879080",
+                    "version": "8.x-4.1+2-dev",
+                    "datestamp": "1554729485",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 },
                 "drush": {
@@ -4305,7 +4299,8 @@
                 "source": "http://cgit.drupalcode.org/migrate_tools",
                 "issues": "http://drupal.org/project/migrate_tools",
                 "irc": "irc://irc.freenode.org/drupal-migrate"
-            }
+            },
+            "time": "2019-04-10T13:58:55+00:00"
         },
         {
             "name": "drupal/migrate_upgrade",
@@ -12337,6 +12332,7 @@
     "stability-flags": {
         "civicrm/civicrm-drupal-8": 20,
         "drupal/migrate_plus": 20,
+        "drupal/migrate_tools": 20,
         "drupal/simple_block": 10,
         "jdelon02/civicrm-composer-plugin": 20,
         "zetacomponents/mail": 20
